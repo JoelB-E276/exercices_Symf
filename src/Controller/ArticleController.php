@@ -17,13 +17,14 @@ class ArticleController extends AbstractController
         ]);
     }
 
+    #[Route('/articles', name: 'articles')]
 
     public function threeLast(): Response
     {
         $articlesRepository = $this->getDoctrine()->getRepository(Article::class);
         $articles = $articlesRepository->findAll();
-        return $this->render('index.html.twig', [
-            '$articles' => $articles,
+        return $this->render('article/index.html.twig', [
+            'articles' => $articles,
         ]);
     }
 
